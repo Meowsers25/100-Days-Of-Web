@@ -13,10 +13,11 @@
 <!-- sign up form here ... -->
 <h1>Sign Up For FoxRem</h1>
 <form action="" method="POST">
-    <input type="text" name="full_name" placeholder=" full name">
-    <input type="text" name="email" placeholder=" email">
-    <input type="password" name="password" placeholder=" password">
-    <select name="heard_of">
+    <input type="text" name="full_name" placeholder=" full name" required>
+    <input type="email" name="email" placeholder=" email" required>
+    <input type="password" minlength="6" name="password" placeholder=" password" required>
+    <input type="number" min="18" name="age" placeholder=" your age" required>
+    <select name="heard_of" required>
         <option value="" selected>Select Option</option>
         <option value="podcast">Podcast</option>
         <option value="internet">Internet</option>
