@@ -50,10 +50,21 @@ def get_car(car_id: int) -> JSONResponse:
     return JSONResponse(Car(car), 200)
 
 def update_car(car_id: int, car: Car) -> JSONResponse:
-    pass
+    if not cars.get(car_id):
+        error = {'error': CAR_NOT_FOUND}
+        return JSONResponse(error, 404)
+
+    car.id = car_id
+    cars[car_id] = car
+    return JSONResponse(Car(car), 200)
 
 def delete_car(car_id: int) -> JSONResponse:
-    pass
+    if not cars.get(car_id):
+        error = {'error': CAR_NOT_FOUND}
+        return JSONResponse(error, 404)
+
+    del cars[car_id]
+    return JSONResponse({}, 204)
 
 routes = [
     Route('/', method='GET', handler=list_cars),
