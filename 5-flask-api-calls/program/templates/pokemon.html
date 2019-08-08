@@ -1,0 +1,47 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>This is our site</title>
+  </head>
+  <body>
+    <p>This is tex in our HTML file</p>
+  </body>
+</html> -->
+
+{% extends "base.html" %} {% block content %}
+  <h1>Pokemon Color List</h1>
+  <h3>Enter a color to see which Pokemon match</h3>
+  <div>
+    <form action="/pokemon" method="POST" class="mui-form">
+      <label for="pokecolor">Pokemon Color</label>
+      <input type="text" class="form-control" id="pokecolor" name="pokecolor" placeholder="Eg: Red">
+      <br>
+      <button type="submit" class="mui-btn mui-btn-raised" value="Submit">Submit</button>
+    </form>
+  </div>
+  <br>
+  <br>
+  <div>
+    {% if pokemon %}
+    <table class="mui-table mui-table--bordered">
+      <thead>
+        <tr>
+          <td>Pokemon</td>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in pokemon %}
+        <tr>
+          <td>{{ i }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% endif %}
+  
+  </div>
+{% endblock %}
+ 
